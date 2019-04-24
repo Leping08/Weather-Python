@@ -49,7 +49,7 @@ while True:
         temp_fahrenheit = ((temperature * 9/5) + 35)
         print("Humidity %d %%" % result.humidity)
         print("Pressure {:05.2f}hPa".format(pressure))
-        print("Temp {:05.2f}*F".format(temp_fahrenheit)
+        print("Temp {:05.2f}*F".format(temp_fahrenheit))
         payload = {"temp": temp_fahrenheit, "humidity": result.humidity, "pressure": pressure}
         r = requests.post(url, json=payload)
         time.sleep(1)
