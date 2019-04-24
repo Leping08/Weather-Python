@@ -39,8 +39,8 @@ bmp280 = BMP280(i2c_dev=bus)
 
 instance = dht11.DHT11(pin=14)
 
-#url = 'http://192.168.1.14:8000/api/weather/eMGzj8KOyITdwgnJA1Gd'
-url = 'http://192.168.1.14:8000/api/wee'
+url = 'http://192.168.1.14:8000/api/weather/eMGzj8KOyITdwgnJA1Gd'
+#url = 'http://192.168.1.14:8000/api/wee'
 
 while True: 
     result = instance.read() 
