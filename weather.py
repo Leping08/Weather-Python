@@ -45,7 +45,7 @@ while True:
         pressure = bmp280.get_pressure()
         print("Humidity %d %%" % result.humidity)
         print("Pressure {:05.2f}hPa" % pressure)
-        print("Temp {:05.2f}*F" % ((temperature * 9/5) + 35))
+        print("Temp {:05.2f}*F".format((temperature * 9/5) + 35))
         time.sleep(1)
 
 
