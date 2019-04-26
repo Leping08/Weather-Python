@@ -52,8 +52,8 @@ while True:
         print("Humidity %d %%" % result.humidity)
         print("Pressure {:05.2f}hPa".format(pressure))
         print("Temp {:05.2f}*F".format(temp_fahrenheit))
-        print(now.strftime("%Y-%m-%d %H:%M"))
-        payload = {"temp": temp_fahrenheit, "humidity": result.humidity, "pressure": pressure, "event_time": now}
+        print(now.strftime("%Y-%m-%d %H:%M:%S"))
+        payload = {"temp": temp_fahrenheit, "humidity": result.humidity, "pressure": pressure, "event_time": str(now)}
         r = requests.post(url, json=payload)
         time.sleep(1)
 
