@@ -46,7 +46,8 @@ count = 0
 while True: 
     result = instance.read() 
     if result.is_valid(): 
-        if count >= 1: # Only read the saesor data after the first reading
+        if count >= 1: 
+            # Only read the saesor data after the first reading
             temperature = bmp280.get_temperature()
             pressure = bmp280.get_pressure()
             temp_fahrenheit = ((temperature * 9/5) + 35)
@@ -56,9 +57,11 @@ while True:
             print("Temp {:05.2f}*F".format(temp_fahrenheit))
             print(now.strftime("%Y-%m-%d %H:%M:%S"))
             payload = {"temp": temp_fahrenheit, "humidity": result.humidity, "pressure": pressure, "event_time": str(now)}
-        else: # Read the data for the first time and null it out. Most of the sensor data on the first pass is bad data
+        else: 
+            # Read the data for the first time and null it out. Most of the sensor data on the first pass is bad data
             temperature = bmp280.get_temperature()
             pressure = bmp280.get_pressure()
+            now = datetime.datetime.now()
             payload = {"temp": "null", "humidity": "null", "pressure": "null", "event_time": str(now)}
         r = requests.post(url, json=payload)
         count = count + 1
