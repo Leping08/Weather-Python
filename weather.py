@@ -50,7 +50,7 @@ def get_seonsor_data():
     else:
         humidity = null
 
-    if not (humidity and pressure and temp_fahrenheit) #Check if any of the values have not been set and try again
+    if not (humidity and pressure and temp_fahrenheit): #Check if any of the values have not been set and try again
         print('BAD DATA. SLEEPING')
         time.sleep(0.1)
         get_seonsor_data()
