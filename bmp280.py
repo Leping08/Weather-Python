@@ -159,9 +159,8 @@ class BMP280:
             mode = "sleep"
 
         try:
-            chip = self._bmp280.get('CHIP_ID')
-            if chip.id != CHIP_ID:
-                raise RuntimeError("Unable to find bmp280 on 0x{:02x}, CHIP_ID returned {:02x}".format(self._i2c_addr, chip.id))
+            if self._bmp280.CHIP_ID.get_id() != CHIP_ID:
+                raise RuntimeError("Unable to find bmp280 on 0x{:02x}, CHIP_ID returned {:02x}".format(self._i2c_addr, self._bmp280.CHIP_ID.get_id()))
         except IOError:
             raise RuntimeError("Unable to find bmp280 on 0x{:02x}, IOError".format(self._i2c_addr))
 
