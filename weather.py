@@ -51,8 +51,8 @@ def get_seonsor_data():
         humidity = ""
 
     if not (humidity and pressure and temp_fahrenheit): #Check if any of the values have not been set and try again
-        print('BAD DATA. SLEEPING')
-        time.sleep(0.1)
+        print('-- BAD DATA SLEEPING --')
+        time.sleep(0.01)
         get_seonsor_data()
     else: #Print out the data and return it in json
         print("Humidity %d %%" % humidity)
@@ -77,7 +77,7 @@ while True:
         data = ""
     #r = requests.post(url, json=data)
     count = count + 1
-    time.sleep(1)
+    time.sleep(5)
 
 
 GPIO.cleanup()
