@@ -48,7 +48,7 @@ def get_seonsor_data():
     if result.is_valid():
         humidity = result.humidity
     else:
-        humidity = null
+        humidity = ""
 
     if not (humidity and pressure and temp_fahrenheit): #Check if any of the values have not been set and try again
         print('BAD DATA. SLEEPING')
