@@ -64,7 +64,7 @@ def get_seonsor_data():
 
 
 
-url = 'http://192.168.1.14:8000/api/weather/eMGzj8KOyITdwgnJA1Gd'
+url = 'https://api.derkweather.com/api/weather/eMGzj8KOyITdwgnJA1Gd'
 count = 0
 
 while True: 
@@ -75,7 +75,8 @@ while True:
         # Read the data for the first time and null it out. Most of the sensor data on the first pass is bad data
         get_seonsor_data()
         data = ""
-    #r = requests.post(url, json=data)
+    if data
+        r = requests.post(url, json=data)
     count = count + 1
     time.sleep(5)
 
