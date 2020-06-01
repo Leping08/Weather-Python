@@ -35,6 +35,7 @@ GPIO.cleanup()
 
 bus = SMBus(1)
 bmp280 = BMP280(i2c_dev=bus)
+bmp280.setup(mode="forced")
 
 
 instance = dht11.DHT11(pin=14)
@@ -45,8 +46,8 @@ count = 0
 
 while True: 
     result = instance.read() 
-    if result.is_valid(): 
-        if count >= 1: 
+    if result.is_valid():
+        if count >= 1:
             # Only read the saesor data after the first reading
             temperature = bmp280.get_temperature()
             pressure = bmp280.get_pressure()
@@ -56,16 +57,16 @@ while True:
             print("Pressure {:05.2f}hPa".format(pressure))
             print("Temp {:05.2f}*F".format(temp_fahrenheit))
             print(now.strftime("%Y-%m-%d %H:%M:%S"))
-            payload = {"temp": temp_fahrenheit, "humidity": result.humidity, "pressure": pressure, "event_time": str(now)}
+            #payload = {"temp": temp_fahrenheit, "humidity": result.humidity, "pressure": pressure, "event_time": str(now)}
         else: 
             # Read the data for the first time and null it out. Most of the sensor data on the first pass is bad data
             temperature = bmp280.get_temperature()
             pressure = bmp280.get_pressure()
             now = datetime.datetime.now()
-            payload = {"temp": "null", "humidity": "null", "pressure": "null", "event_time": str(now)}
-        r = requests.post(url, json=payload)
+            #payload = {"temp": "null", "humidity": "null", "pressure": "null", "event_time": str(now)}
+        #r = requests.post(url, json=payload)
         count = count + 1
-        time.sleep(1)
+        time.sleep(5)
 
 
 GPIO.cleanup()
