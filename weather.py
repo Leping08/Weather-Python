@@ -74,7 +74,7 @@ while True:
     else: 
         # Read the data for the first time and null it out. Most of the sensor data on the first pass is bad data
         get_seonsor_data()
-        data = null
+        data = ""
     #r = requests.post(url, json=data)
     count = count + 1
     time.sleep(1)
