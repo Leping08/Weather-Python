@@ -79,7 +79,7 @@ while True:
     if data:
         r = requests.post(url, json=data)
     count = count + 1
-    time.sleep(5)
+    time.sleep(15)
 
 
 GPIO.cleanup()
