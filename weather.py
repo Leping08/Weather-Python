@@ -77,7 +77,10 @@ while True:
         data = ""
         
     if data:
+        print("About to send request")
         r = requests.post(url, json=data)
+        print("Response status code:")
+        print(r.status_code)
     count = count + 1
     time.sleep(15)
 
