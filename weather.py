@@ -60,6 +60,8 @@ def get_seonsor_data():
         print("Temp {:05.2f}*F".format(temp_fahrenheit))
         print(now.strftime("%Y-%m-%d %H:%M:%S"))
         payload = {"temp": temp_fahrenheit, "humidity": humidity, "pressure": pressure, "event_time": str(now)}
+        print("Request payload:")
+        print(payload)
         return payload
 
 
@@ -71,6 +73,8 @@ while True:
     if count >= 1:
         # Only read the saesor data after the first reading
         data = get_seonsor_data()
+        print("Data:")
+        print(data)
     else: 
         # Read the data for the first time and null it out. Most of the sensor data on the first pass is bad data
         get_seonsor_data()
