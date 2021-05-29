@@ -53,7 +53,7 @@ def get_seonsor_data():
     if not (humidity and pressure and temp_fahrenheit): #Check if any of the values have not been set and try again
         print('-- BAD DATA SLEEPING --')
         time.sleep(0.01)
-        get_seonsor_data()
+        return get_seonsor_data()
     else: #Print out the data and return it in json
         print("Humidity %d %%" % humidity)
         print("Pressure {:05.2f}hPa".format(pressure))
