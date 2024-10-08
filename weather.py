@@ -98,7 +98,7 @@ while True:
 
         # save the data to a local csv file
         with open('weather.csv', 'a') as f:
-            f.write(str(data) + '\n')
+            f.write(f"{data['temp']},{data['humidity']},{data['pressure']},{data['event_time']}\n")
         print("Data saved to csv file")
 
     count = count + 1
