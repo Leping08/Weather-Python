@@ -86,6 +86,21 @@ while True:
         r = requests.post(url, json=data)
         print("Response status code:")
         print(r.status_code)
+
+        print("About to save to csv file")
+        # Check if the file exists and if not create it
+        try:
+            with open('weather.csv', 'r') as f:
+                pass
+        except FileNotFoundError:
+            with open('weather.csv', 'w') as f:
+                f.write('temp,humidity,pressure,event_time' + '\n')
+
+        # save the data to a local csv file
+        with open('weather.csv', 'a') as f:
+            f.write(str(data) + '\n')
+        print("Data saved to csv file")
+
     count = count + 1
     time.sleep(15)
 
