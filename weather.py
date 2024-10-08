@@ -43,12 +43,13 @@ def get_seonsor_data():
     temperature = bmp280.get_temperature()
     pressure = bmp280.get_pressure()
     temp_fahrenheit = ((temperature * 9/5) + 35)
-    now = datetime.datetime.now()
-    result = instance.read()
-    if result.is_valid():
-        humidity = result.humidity
-    else:
-        humidity = ""
+    now = datetime.datetime.utcnow()
+    # result = instance.read()
+    # if result.is_valid():
+    #     humidity = result.humidity
+    # else:
+    #     humidity = ""
+    humidity = 50
 
     if not (humidity and pressure and temp_fahrenheit): #Check if any of the values have not been set and try again
         print('-- BAD DATA SLEEPING --')
