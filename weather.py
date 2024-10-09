@@ -83,9 +83,12 @@ while True:
         
     if data:
         print("About to send request")
-        r = requests.post(url, json=data)
-        print("Response status code:")
-        print(r.status_code)
+        try:
+            r = requests.post(url, json=data)
+            print("Response status code:")
+            print(r.status_code)
+        except requests.RequestException as e:
+            print(f"Request failed: {e}")
 
         print("About to save to csv file")
         # Check if the file exists and if not create it
