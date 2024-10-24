@@ -18,7 +18,7 @@ git clone https://github.com/Leping08/Weather-Python.git
 #### 3. Install i2cdevice library
 
 ```bash
-pip install i2cdevice
+pip install i2cdevice --break-system-packages
 ```
 
 #### 4. Run the weahter.py script
